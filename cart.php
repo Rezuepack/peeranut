@@ -77,20 +77,7 @@
                     
 
                     <form action="?action=update" method="POST">
-                        <table class="table text-center">
-                            <thead class="table-custom">
-                                <tr>
-                                    <th>รหัสสินค้า</th>
-                                    <th>รูปภาพสินค้า</th>
-                                    <th>ชื่อสินค้า</th>
-                                    <th>ราคาสินค้า</th>
-                                    <th>จำนวนสินค้า</th>
-                                    <th>รวมราคาสินค้า</th>
-                                    <th>ลบ</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                        
+                       
                     <?php
                     
                     
@@ -105,6 +92,20 @@
                                     $total += $sum;
                                 
                     ?>
+                            <table class="table text-center">
+                                <thead class="table-custom">
+                                    <tr>
+                                        <th>รหัสสินค้า</th>
+                                        <th>รูปภาพสินค้า</th>
+                                        <th>ชื่อสินค้า</th>
+                                        <th>ราคาสินค้า</th>
+                                        <th>จำนวนสินค้า</th>
+                                        <th>รวมราคาสินค้า</th>
+                                        <th>ลบ</th>
+                                    </tr>
+                                </thead>
+                            <tbody>
+
                         <tr>
                                 <td><?= $row['store_id']; ?></td>
                                 <td><img src="images/store/<?= $row['store_image']; ?>" width="200"></td>
@@ -146,6 +147,8 @@
                     </form>
                             <?php 
                         
+                    } else {
+                        echo '<h3 class="text-center">ไม่มีสินค้าอยู่ในตะกร้าของคุณ</h3>';
                     }
                     ?>
                     </div>
