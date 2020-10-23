@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2020 at 08:33 AM
+-- Generation Time: Oct 23, 2020 at 01:13 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -34,6 +34,14 @@ CREATE TABLE `bills` (
   `employee` varchar(255) NOT NULL,
   `store_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `bills`
+--
+
+INSERT INTO `bills` (`bill_id`, `cilent_id`, `sale_id`, `employee`, `store_name`) VALUES
+(1, '1', '', '', 'Notebook MSI Modern 14 B10MW-230TH (Blue Stone)'),
+(2, '1', '', '', 'Notebook MSI Modern 14 B10MW-230TH (Blue Stone)');
 
 -- --------------------------------------------------------
 
@@ -96,6 +104,14 @@ CREATE TABLE `insurance` (
   `insurance_detail` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `insurance`
+--
+
+INSERT INTO `insurance` (`insurance_id`, `store_id`, `insurance_name`, `insurance_date`, `insurance_detail`) VALUES
+(1, '1', '', '2020-10-23 17:51:21', ''),
+(2, '2', '', '2020-10-23 17:51:21', '');
+
 -- --------------------------------------------------------
 
 --
@@ -109,6 +125,14 @@ CREATE TABLE `sales` (
   `sale_date` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `sales`
+--
+
+INSERT INTO `sales` (`sale_id`, `client_id`, `store_code`, `sale_date`) VALUES
+(1, '1', '1', '2020-10-23 17:51:21'),
+(2, '1', '2', '2020-10-23 17:51:21');
+
 -- --------------------------------------------------------
 
 --
@@ -117,8 +141,19 @@ CREATE TABLE `sales` (
 
 CREATE TABLE `store` (
   `store_id` int(11) NOT NULL,
-  `store_name` varchar(255) NOT NULL
+  `store_image` text NOT NULL,
+  `store_name` varchar(255) NOT NULL,
+  `store_price` varchar(255) NOT NULL,
+  `store_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `store`
+--
+
+INSERT INTO `store` (`store_id`, `store_image`, `store_name`, `store_price`, `store_type`) VALUES
+(1, 'A0131758OK_BIG_1.webp', 'Notebook MSI Modern 14 B4MW-006TH (Black)', '19990', 'MSI'),
+(2, 'Notebook_MSI Modern_14_B10MW-230TH.png', 'Notebook MSI Modern 14 B10MW-230TH (Blue Stone)', '21990', 'MSI');
 
 -- --------------------------------------------------------
 
@@ -131,6 +166,14 @@ CREATE TABLE `types` (
   `type_code` varchar(255) NOT NULL,
   `type_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `types`
+--
+
+INSERT INTO `types` (`type_id`, `type_code`, `type_name`) VALUES
+(1, 'MSI101', 'MSI'),
+(2, '', 'ASUS');
 
 --
 -- Indexes for dumped tables
@@ -192,7 +235,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `client`
@@ -216,25 +259,25 @@ ALTER TABLE `formation`
 -- AUTO_INCREMENT for table `insurance`
 --
 ALTER TABLE `insurance`
-  MODIFY `insurance_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `insurance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `store`
 --
 ALTER TABLE `store`
-  MODIFY `store_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `store_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `types`
 --
 ALTER TABLE `types`
-  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
