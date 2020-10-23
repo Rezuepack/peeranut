@@ -29,7 +29,18 @@
                 </tr>
             </thead>
             <tbody>
-                
+                <?php 
+                    $sql = "SELECT * FROM `formation`";
+                    $query = mysqli_query($conn, $sql);
+                    while($row = mysqli_fetch_array($query)) {
+                ?>
+                <tr>
+                    <td><?= $row['format_id']; ?></td>
+                    <td><?= $row['store_id']; ?></td>
+                    <td><?= $row['format_date']; ?></td>
+                    <td><?= $row['format_detail']; ?></td>
+                </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>

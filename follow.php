@@ -1,9 +1,27 @@
 <?php 
+    include('config/db.php');
     session_start();
     error_reporting(0);
     if(empty($_SESSION['client'])) {
         echo '<script>alert("กรุณาเข้าสู่ระบบ");window.location.href = "login.php";</script>';
     }
+
+    if(isset($_POST['formats'])) {
+
+        $store_id = $_POST['store_id'];
+        $detail = $_POST['detail'];
+        $dttm = Date("Y-m-d G:i:s");
+
+        $formation_sql = "INSERT INTO `formation` (store_id, format_date, format_detail) VALUES ('$store_id', '$dttm', '$detail')";
+        $formation_query = mysqli_query($conn, $formation_sql);
+        if($formation_query) {
+            echo '<script>alert("ส่งเคลมสินค้าสำเร็จ");window.location.href="follow.php"</script>';
+        } else {
+            echo '<script>alert("ส่งเคลมสินค้าล้มเหลว");window.location.href="follow.php"</script>';
+        }
+
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,6 +52,35 @@
             <!--  -->
             <div class="col-lg-9">
                 <div class="row">
+
+                    
+                    <div class="col-lg-12 mt-2">
+                    <?php 
+                        if(!empty($_GET['format'])) {
+                            $format_id = $_GET['format'];
+                            $format_sql = "SELECT * FROM `store` WHERE `store_id` = '$format_id'";
+                            $format_query = mysqli_query($conn, $format_sql);
+                            $format_result = mysqli_fetch_array($format_query);
+                        
+                    ?>  
+                    <form action="follow.php" method="POST">
+                        <input type="hidden" name="store_id" value="<?= $format_result['store_id']; ?>">
+                        <div class="form-group">
+                            <label>รายการสินค้า</label>
+                            <input type="text" class="form-control" value="<?= $format_result['store_name']; ?>" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>รายละเอียดในเกมเคลม</label>
+                            <textarea name="detail" class="form-control" cols="10" rows="10" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-custom" type="submit" name="formats">ส่งเคลมสินค้า</button>
+                            <a href="follow.php" class="btn btn-custom">ยกเลิก</a>
+                        </div>
+                    </form>
+                    <?php } ?>  
+                    </div>
+
                     <div class="col-lg-12 mt-2">
                         
                         <table class="table text-center">
@@ -64,7 +111,7 @@
                                     <td><?= $store_code; ?></td>
                                     <td><?= mb_substr($store_row['store_name'], 0, 40, "UTF8"); ?></td>
                                     <td><?= $row['sale_date']; ?></td>
-                                    <td><a href="follow.php" class="btn btn-custom"><i class="fas fa-tools"></a></td>
+                                    <td><a href="follow.php?format=<?= $store_row['store_id']; ?>" class="btn btn-custom"><i class="fas fa-tools"></a></td>
                                 </tr>
                            
                             <?php }
