@@ -43,6 +43,7 @@
                                     <th>รหัสสินค้า</th>
                                     <th>ชื่อสินค้า</th>
                                     <th>วันที่ขาย</th>
+                                    <th>ส่งเคลมสินค้า</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -63,6 +64,7 @@
                                     <td><?= $store_code; ?></td>
                                     <td><?= mb_substr($store_row['store_name'], 0, 40, "UTF8"); ?></td>
                                     <td><?= $row['sale_date']; ?></td>
+                                    <td><a href="follow.php" class="btn btn-custom"><i class="fas fa-tools"></a></td>
                                 </tr>
                            
                             <?php }

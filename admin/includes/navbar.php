@@ -41,16 +41,19 @@
                         <a href="store.php" class="nav-link nav-link-top-navbar"><i class="fas fa-shopping-cart"></i> สินค้า</a>
                     </li>
                     <li class="nav-item">
-                        <a href="howto.php" class="nav-link nav-link-top-navbar"><i class="fas fa-credit-card"></i> รายการสั่งซื้อ</a>
+                        <a href="list.php" class="nav-link nav-link-top-navbar"><i class="fas fa-credit-card"></i> รายการสั่งซื้อ</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link nav-link-top-navbar"><i class="fas fa-question-circle"></i> บิลสินค้า</a>
+                        <a href="bill.php" class="nav-link nav-link-top-navbar"><i class="fas fa-question-circle"></i> บิลสินค้า</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link nav-link-top-navbar"><i class="fas fa-comments"></i> ประกันสินค้า</a>
+                        <a href="employee.php" class="nav-link nav-link-top-navbar"><i class="fas fa-user-shield"></i> พนักงาน</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link nav-link-top-navbar"><i class="fas fa-users"></i> ผู้จัดทำ</a>
+                        <a href="insurance.php" class="nav-link nav-link-top-navbar"><i class="fas fa-comments"></i> ประกันสินค้า</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="formation.php" class="nav-link nav-link-top-navbar"><i class="fas fa-tools"></i> เคลมสินค้า</a>
                     </li>
                 </ul>
             </div>

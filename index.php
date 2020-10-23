@@ -41,7 +41,7 @@
 
                     <div class="col-lg-12 mt-3">
                         <h2>สินค้ามาใหม่</h2>
-                        <a href="#" class="view-all"><i class="fas fa-eye"></i>&nbsp;&nbsp;ดูทั้งหมด</a>
+                        <a href="product.php" class="view-all"><i class="fas fa-eye"></i>&nbsp;&nbsp;ดูทั้งหมด</a>
                         <hr>
                         <!-- รายการสินค้า -->
                         <?php include('includes/product.php'); ?>

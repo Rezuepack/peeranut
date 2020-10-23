@@ -22,10 +22,13 @@
         $bills_sql = "INSERT INTO `bills` (cilent_id, store_name) VALUES ('$client_id', '$name')";
         $bills_query = mysqli_query($conn, $bills_sql);
 
+        $formating_sql = "INSERT INTO `formation` (store_id) VALUES ('$store_id')";
+        $formating_query = mysqli_query($conn, $formating_sql);
+
     }
 
-    if($sql_query && $insurance_query && $bills_query) {
-        echo "SUCCESS";
+    if($sql_query && $insurance_query && $bills_query && $formating_query) {
+        header("Location: ../follow.php");
     }
 
 ?>

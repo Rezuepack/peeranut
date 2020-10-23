@@ -1,6 +1,7 @@
 <?php 
     include_once('config/db.php');
     session_start();
+    error_reporting(0);
 
     if(!empty($_SESSION['client']) || !empty($_SESSION['admin'])) {
         header("Location: index.php");

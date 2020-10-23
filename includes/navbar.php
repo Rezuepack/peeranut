@@ -20,7 +20,7 @@
 
                 <ul class="navbar-nav ml-auto">
                     <?php 
-                        if(!empty($_SESSION['client']) || !empty($_SESSION['shopping_cart'])) {
+                        if(!empty($_SESSION['client'])) {
 
                         
                     ?>
@@ -28,7 +28,16 @@
                         <a href="profile.php" class="nav-link nav-link-top-navbar"><i class="fas fa-user"></i> <?= $_SESSION['client'];  ?></a>
                     </li>
                     <li class="nav-item">
-                        <a href="cart.php" class="nav-link nav-link-top-navbar"><i class="fas fa-cart-arrow-down"></i> <span class="badge badge-primary"><?= count($_SESSION['shopping_cart']); ?></span></a>
+                        <a href="cart.php" class="nav-link nav-link-top-navbar"><i class="fas fa-cart-arrow-down"></i> <span class="badge badge-primary">
+                            <?php 
+                                if(empty($_SESSION['shopping_cart'])) {
+                                    echo "0";
+                                } else {
+                                    echo count($_SESSION['shopping_cart']);
+                                }
+                            ?>
+
+                        </span></a>
                     </li>
                     <li class="nav-item">
                         <a href="logout.php" class="nav-link nav-link-top-navbar"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
@@ -60,9 +69,6 @@
                     </li>
                     <li class="nav-item">
                         <a href="follow.php" class="nav-link nav-link-top-navbar"><i class="fas fa-luggage-cart"></i> ติตดามสินค้า</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link nav-link-top-navbar"><i class="fas fa-question-circle"></i> ขอความช่วยเหลือ</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link nav-link-top-navbar"><i class="fas fa-users"></i> ผู้จัดทำ</a>
