@@ -1,6 +1,11 @@
 <?php 
     include_once('config/db.php');
     session_start();
+
+    if(!empty($_SESSION['client']) || !empty($_SESSION['admin'])) {
+        header("Location: index.php");
+    }
+
     // รับค่าจากฟอร์มล็อคอิน
     if(isset($_POST['login'])) {
         $username = $_POST['username'];

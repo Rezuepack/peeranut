@@ -1,6 +1,7 @@
 <?php 
     include_once('config/db.php');
     session_start();
+    error_reporting(0);
     // รับค่าจากฟอร์มล็อคอิน
     if(empty($_SESSION['client'])) {
         echo '<script>alert("กรุณาเข้าสู่ระบบ");</script>';
@@ -11,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เข้าสู่ระบบ | VAGAS X</title>
+    <title>โปรไฟล์ | VAGAS X</title>
     <?php include('includes/css.php'); ?>
 </head>
 <body>

@@ -41,6 +41,38 @@
         }
     }
 
+    if(isset($_GET['editstore'])) {
+        $edit_store_id = $_GET['editstore'];
+        if(isset($_POST['edit'])) {
+            $name = $_POST['name'];
+            $brand = $_POST['brand'];
+            $price = $_POST['price'];
+            $image = $_FILES['image']['name'];
+            $image_tmp = $_FILES['image']['tmp_name'];
+            move_uploaded_file($image_tmp, "../images/store/$image");
+
+            $edit_store_sql = "UPDATE `store` SET `store_name` = '$name', `store_type` = '$brand', `store_price` = '$price', `store_image` = '$image' WHERE `store_id` = '$edit_store_id'";
+            $edit_store_query = mysqli_query($conn, $edit_store_sql);
+            if($edit_store_query) {
+                echo '<script>alert("แก้ไขสินค้าสำเร็จ");window.location.href="store.php";</script>';
+            } else {
+                echo '<script>alert("แก้ไขสินค้าล้มเหลว");window.location.href="store.php";</script>';
+            }
+
+        }
+    }
+
+    if(isset($_GET['remove'])) {
+        $remove_id = $_GET['remove'];
+        $remove_sql = "DELETE FROM `store` WHERE `store_id` = '$remove_id'";
+        $remove_query = mysqli_query($conn, $remove_sql);
+        if($remove_query) {
+            echo '<script>alert("ลบสินค้าสำเร็จ");window.location.href="store.php";</script>';
+        } else {
+            echo '<script>alert("ลบสินค้าล้มเหลว");window.location.href="store.php";</script>';
+        }
+    }
+
 
 ?>
 <!DOCTYPE html>
@@ -175,7 +207,7 @@
                             <div class="modal-header">
                                 <h5 class="modal-title" id="editStoreLabel">แก้ไขสินค้า</h5>
                             </div>
-                            <form action="store.php?editstore" method="POST" enctype="multipart/form-data">
+                            <form action="store.php?editstore=<?= $id; ?>" method="POST" enctype="multipart/form-data">
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label>ชื่อสินค้า</label>
@@ -230,7 +262,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-                                    <button type="submit" name="remove" class="btn btn-primary">ลบสินค้า</button>
+                                    <a href="store.php?remove=<?= $id; ?>" class="btn btn-primary">ลบสินค้า</a>
                                 </div>
                             </form>
                         </div>

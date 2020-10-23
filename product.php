@@ -1,14 +1,15 @@
 <?php 
     include('config/db.php');
     session_start();
+    error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สินค้า | VAGAS X</title>
     <?php include('includes/css.php'); ?>
+
 </head>
 <body>
 
@@ -28,7 +29,7 @@
             </div>
 
             
-
+            
             <?php 
                 if(isset($_GET['type'])) {
                     $type_name = $_GET['type'];
@@ -42,6 +43,8 @@
                 <div class="row">
                     <div class="col-lg-12 mt-2">
                         <h3 class="text-center"><i class="fas fa-shopping-cart"></i> สินค้า <?= $type_name; ?></h3>
+                        <title>สินค้า <?= $type_name; ?> | VAGAS X</title>
+
                         <hr>
                     <?php 
                     
@@ -56,6 +59,7 @@
             
                         <?php 
                             while($store_row = mysqli_fetch_array($store_query)) {
+                                $id = $store_row['store_id'];
                                 $image = $store_row['store_image'];
                                 $name = $store_row['store_name'];
                                 $price = $store_row['store_price'];
@@ -70,7 +74,8 @@
                                 <h5>ราคาสินค้า : <a style="color: #06a3fd;"><?= number_format($price, 2); ?></a> บาท</h5>
                                 <br><br><br>
                                 <div class="text-right">
-                                    <a href="" class="btn btn-custom"><i class="fas fa-cart-plus"></i> หยิบใส่ตระกร้าสินค้า</a>
+                                <?= '<a href="cart.php?store_id='.$id.'&action=add" class="btn btn-custom"><i class="fas fa-cart-plus"></i> หยิบใส่ตระกร้าสินค้า</a>' ?>
+                                    <!-- <a href="cart.php?store_id=<?= $id ?>&action='add'" class="btn btn-custom"><i class="fas fa-cart-plus"></i> หยิบใส่ตระกร้าสินค้า</a> -->
                                 </div class="text-right">
                             </div>
                             
@@ -92,6 +97,7 @@
 
             <!-- แสดงสินค้า -->
             <div class="col-lg-9">
+            <title>สินค้าทั้งหมด | VAGAS X</title>
                 <div class="row">
                     <div class="col-lg-12 mt-2">
                         <h3 class="text-center"><i class="fas fa-shopping-cart"></i> สินค้าทั้งหมด</h3>
@@ -100,6 +106,8 @@
                             $product_sql = "SELECT * FROM `store`";
                             $product_query = mysqli_query($conn, $product_sql);
                             while($product_row = mysqli_fetch_array($product_query)) {
+                                $id = $product_row['store_id'];
+
                                 $name = $product_row['store_name'];
                                 $image = $product_row['store_image'];
                                 $type = $product_row['store_type'];
@@ -125,7 +133,8 @@
                                 <h5>ราคาสินค้า : <a style="color: #06a3fd;"><?= number_format($price, 2); ?></a> บาท</h5>
                                 <br><br><br>
                                 <div class="text-right">
-                                    <a href="" class="btn btn-custom"><i class="fas fa-cart-plus"></i> หยิบใส่ตระกร้าสินค้า</a>
+                                <?= '<a href="cart.php?store_id='.$id.'&action=add" class="btn btn-custom"><i class="fas fa-cart-plus"></i> หยิบใส่ตระกร้าสินค้า</a>' ?>
+                                    <!-- <a href="" class="btn btn-custom"><i class="fas fa-cart-plus"></i> หยิบใส่ตระกร้าสินค้า</a> -->
                                 </div class="text-right">
                             </div>
 
