@@ -97,7 +97,7 @@
                             
                             <?php 
                                 $client_id = $_SESSION['client_id'];
-                                $sql = "SELECT * FROM `sales` WHERE `client_id` = '$client_id'";
+                                $sql = "SELECT * FROM `sales` WHERE `client_id` = '$client_id' ORDER BY `sale_id` DESC";
                                 $query = mysqli_query($conn, $sql);
                                 while($row = mysqli_fetch_array($query)) {
                                     $store_code = $row['store_code'];
