@@ -97,3 +97,22 @@ a.text-link:hover {
     color: #06a3fd;
 }
 
+.btn-add {
+    margin: 12px;
+    float: right;
+    padding: 8px 12px;
+    border: 1px solid #06a3fd;
+    border-radius: 4px;
+    color: #06a3fd;
+}
+
+.btn-add:hover {
+    text-decoration: none;
+    background: #06a3fd;
+    color: white;
+}
+
+.table-custom {
+    background: #06a3fd;
+    color: white;
+}

@@ -28,13 +28,6 @@
                         <?php include('includes/menu.php'); ?>
                         <!-- เมนูแถบซ้าย  -->
                     </div>
-                    <div class="col-lg-12">
-                        <h3 class="text-center">แสดงความคิดเห็น</h3>
-                        <hr>
-                        <!-- เมนูแสดงความคิดเห็น -->
-                        <?php include('includes/comment.php'); ?>
-                        <!-- เมนูแสดงความคิดเห็น -->
-                    </div>
                 </div>
             </div>
 

@@ -1,24 +1,14 @@
 <div class="box-menu">
-                            <a href="#">Notebook Acer</a>
-                        </div>
-                        <div class="box-menu">
-                            <a href="#">Notebook HP</a>
-                        </div>
-                        <div class="box-menu">
-                            <a href="#">Notebook ASUS</a>
-                        </div>
-                        <div class="box-menu">
-                            <a href="#">Notebook HUAWEI</a>
-                        </div>
-                        <div class="box-menu">
-                            <a href="#">Notebook ACER</a>
-                        </div>
-                        <div class="box-menu">
-                            <a href="#">Notebook LENOVO</a>
-                        </div>
-                        <div class="box-menu">
-                            <a href="#">Notebook MSI</a>
-                        </div>
-                        <div class="box-menu">
-                            <a href="#">Notebook DELL</a>
-                        </div>
+    <a href="product.php">สินค้าทั้งหมด</a>
+</div>
+<?php 
+    include('config/db.php');
+    $menu_sql = "SELECT * FROM `types`";
+    $menu_query = mysqli_query($conn, $menu_sql);
+    while($menu_row = mysqli_fetch_array($menu_query)) {
+        $name = $menu_row['type_name'];
+?>
+<div class="box-menu">
+    <a href="product.php?type=<?= $name; ?>">Notebook <?= $name; ?></a>
+</div>
+<?php } ?>
