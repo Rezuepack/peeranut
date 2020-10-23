@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2020 at 01:13 PM
+-- Generation Time: Oct 23, 2020 at 04:23 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -31,17 +31,9 @@ CREATE TABLE `bills` (
   `bill_id` int(11) NOT NULL,
   `cilent_id` varchar(255) NOT NULL,
   `sale_id` varchar(255) NOT NULL,
-  `employee` varchar(255) NOT NULL,
+  `employee_id` varchar(255) NOT NULL,
   `store_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `bills`
---
-
-INSERT INTO `bills` (`bill_id`, `cilent_id`, `sale_id`, `employee`, `store_name`) VALUES
-(1, '1', '', '', 'Notebook MSI Modern 14 B10MW-230TH (Blue Stone)'),
-(2, '1', '', '', 'Notebook MSI Modern 14 B10MW-230TH (Blue Stone)');
 
 -- --------------------------------------------------------
 
@@ -57,13 +49,6 @@ CREATE TABLE `client` (
   `client_username` varchar(255) NOT NULL,
   `client_password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `client`
---
-
-INSERT INTO `client` (`client_id`, `client_name`, `client_address`, `client_phone`, `client_username`, `client_password`) VALUES
-(1, 'Peeranut Kanjanawattanawong', 'Nakhon Ratchasima', '1234556789', 'Peeranut', '1234');
 
 -- --------------------------------------------------------
 
@@ -86,6 +71,7 @@ CREATE TABLE `employees` (
 
 CREATE TABLE `formation` (
   `format_id` int(11) NOT NULL,
+  `store_id` varchar(255) NOT NULL,
   `format_date` varchar(255) NOT NULL,
   `format_detail` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -104,14 +90,6 @@ CREATE TABLE `insurance` (
   `insurance_detail` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `insurance`
---
-
-INSERT INTO `insurance` (`insurance_id`, `store_id`, `insurance_name`, `insurance_date`, `insurance_detail`) VALUES
-(1, '1', '', '2020-10-23 17:51:21', ''),
-(2, '2', '', '2020-10-23 17:51:21', '');
-
 -- --------------------------------------------------------
 
 --
@@ -124,14 +102,6 @@ CREATE TABLE `sales` (
   `store_code` varchar(255) NOT NULL,
   `sale_date` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `sales`
---
-
-INSERT INTO `sales` (`sale_id`, `client_id`, `store_code`, `sale_date`) VALUES
-(1, '1', '1', '2020-10-23 17:51:21'),
-(2, '1', '2', '2020-10-23 17:51:21');
 
 -- --------------------------------------------------------
 
@@ -147,14 +117,6 @@ CREATE TABLE `store` (
   `store_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `store`
---
-
-INSERT INTO `store` (`store_id`, `store_image`, `store_name`, `store_price`, `store_type`) VALUES
-(1, 'A0131758OK_BIG_1.webp', 'Notebook MSI Modern 14 B4MW-006TH (Black)', '19990', 'MSI'),
-(2, 'Notebook_MSI Modern_14_B10MW-230TH.png', 'Notebook MSI Modern 14 B10MW-230TH (Blue Stone)', '21990', 'MSI');
-
 -- --------------------------------------------------------
 
 --
@@ -166,14 +128,6 @@ CREATE TABLE `types` (
   `type_code` varchar(255) NOT NULL,
   `type_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `types`
---
-
-INSERT INTO `types` (`type_id`, `type_code`, `type_name`) VALUES
-(1, 'MSI101', 'MSI'),
-(2, '', 'ASUS');
 
 --
 -- Indexes for dumped tables
@@ -235,7 +189,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `client`
@@ -247,31 +201,31 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `formation`
 --
 ALTER TABLE `formation`
-  MODIFY `format_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `format_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `insurance`
 --
 ALTER TABLE `insurance`
-  MODIFY `insurance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `insurance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `store`
 --
 ALTER TABLE `store`
-  MODIFY `store_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `store_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `types`
