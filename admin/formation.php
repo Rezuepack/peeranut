@@ -30,7 +30,7 @@
             </thead>
             <tbody>
                 <?php 
-                    $sql = "SELECT * FROM `formation`";
+                    $sql = "SELECT * FROM `formation` ORDER BY `format_id` DESC";
                     $query = mysqli_query($conn, $sql);
                     while($row = mysqli_fetch_array($query)) {
                 ?>

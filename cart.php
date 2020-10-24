@@ -149,6 +149,13 @@
                         
                     } else {
                         echo '<h3 class="text-center">ไม่มีสินค้าอยู่ในตะกร้าของคุณ</h3>';
+                        echo "
+                        <style>
+                            .table-custom {
+                                display: none;
+                            }
+                        </style>
+                        ";
                     }
                     ?>
                     </div>

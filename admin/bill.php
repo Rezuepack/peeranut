@@ -47,7 +47,7 @@
             </thead>
             <tbody>
                 <?php 
-                     $sql = "SELECT * FROM `bills`";
+                     $sql = "SELECT * FROM `bills` ORDER BY `bill_id` DESC";
                      $query = mysqli_query($conn, $sql);
                      while($row = mysqli_fetch_array($query)) {
                 ?>
